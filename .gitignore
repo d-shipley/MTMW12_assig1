@@ -1,0 +1,19 @@
+# File types to ignore
+# Includes images, videos, other document types
+# Basically anything that isn't code or code documentation!
+# Note: lines beginning with # are ignored
+#
+*.pdf
+*.png
+*.jpg
+*.bak
+*~
+*.pcy
+*.docx
+*.gif
+*.xlxs
+*.zip
+*.out
+*.log
+*.aux
+*.svg
