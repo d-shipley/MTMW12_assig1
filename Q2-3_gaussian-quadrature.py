@@ -3,12 +3,16 @@
 #
 #   gaussian-quadrature.py
 #
-#	This code was written to answer Q2 & 3, Assignment 1, for MTMW12 
-#   "Intro to Numerical Modelling"
+#   A program to integrate any function of one variable between any limits and 
+#   to any required resolution.
 #
-#   A program to integrate any function of one variable between any 
-#   limits and to any required resolution.
+#   The integration is carried out by the function "gauss_int".
 #
+#   A couple of test functions, whose integrals are known analytically, are also
+#   included as functions to test the code.
+#
+#	This code was written to answer Q2 & 3, Assignment 1, for MTMW12 "Intro. to 
+#   Numerical Modelling"
 #
 
 import numpy as np
@@ -16,23 +20,23 @@ import matplotlib.pyplot as plt
 
 def gauss_int(f, lLim, uLim, nInts=20):
     #  Help text
-    '''
-    A function to integrate numerically using 1-point Gaussian
-    quadrature. Takes as input:
+    """
+    A function to integrate numerically using 1-point Gaussian quadrature. Takes
+    as input:
         f:		a function of one variable
         lLim:	lower limit of the integral
         uLim:	upper limit of the integral
-        nInts:	number of intervals to divide the the integration range
-                into (default = 20)
-    1-point Gaussian quadrature works by adding together rectangles of 
-    height equal to the value of the function evaluated halfway between 
-    adjacent x-points. n-point Gaussian quadrature should be exact for 
-    polynomials of degree n, so use this to check the code!
-    '''
+        nInts:	number of intervals to divide the integration range into 
+                (default = 20)
+    1-point Gaussian quadrature works by adding together rectangles of height 
+    equal to the value of the function evaluated halfway between adjacent 
+    x-points. n-point Gaussian quadrature should be exact for polynomials of 
+    degree n, so use this to check the code!
+    """
     
-    #  re-write this code to take an array of values as an input? So you
-    #  can numerically integrate a function for which we don't have an
-    #  analytical expression
+    #  re-write this code to take an array of values as an input? So you can 
+    #  numerically integrate a function for which we don't have an analytical 
+    #  expression, or just a set of data points
     
     #  calculate interval length from input values
     dx = (uLim - lLim)/nInts
@@ -47,9 +51,9 @@ def gauss_int(f, lLim, uLim, nInts=20):
 
 def line_eq(x):
     #  Help text
-    '''
+    """
     Returns the equation of a line: y = 3.*x - 2.
-    '''
+    """
     return 3.*x - 2.;
     
 def sin3(x):
@@ -61,14 +65,14 @@ def sin3(x):
 
 def main():
     #  Help text
-    '''
-    The body of the program. Calls the function "gauss_int" to 
-    numerically integrate a function specified by the writer. Has a 
-    boolean switch between code for questions 2. and 3. of the 
-    assignment; if qNo == 2, runs code for Q2; if qNo == 3, runs code
-    for Q3.
-    '''
+    """
+    The body of the program. Calls the function "gauss_int" to numerically 
+    integrate a function specified by the writer. Has a boolean switch between 
+    code for questions 2. and 3. of the assignment; if qNo == 2, runs code for 
+    Q2; if qNo == 3, runs code for Q3.
+    """
     
+    #  set question number; must be an integer
     qNo = 3
     
     if qNo == 2:
@@ -85,11 +89,10 @@ def main():
         print "integral = ", Integral
     
     elif qNo == 3:
-        #  This part of the code calculates the integral of sin(x) on 
-        #  the interval [0,pi] using 1-point Gaussian quadrature, for
-        #  nInts = {int(4e+3), int(4e+4), int(4e+5), int(4e+6)}, and
-        #  computes the absolute error of the method for each number of
-        #  intervals.
+        #  This part of the code calculates the integral of sin(x) on the 
+        #  interval [0,pi] using 1-point Gaussian quadrature, for
+        #  nInts = {int(4e+3), int(4e+4), int(4e+5), int(4e+6)}, and computes 
+        #  the absolute error of the method for each number of intervals.
         
         #  exact value of integral; should be 2
         exactInt = - np.cos(np.pi) + np.cos(0.)
