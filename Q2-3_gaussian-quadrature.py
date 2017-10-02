@@ -19,7 +19,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def gauss_int(f, lLim, uLim, nInts=20):
-    #  Help text
     """
     A function to integrate numerically using 1-point Gaussian quadrature. Takes
     as input:
@@ -33,7 +32,6 @@ def gauss_int(f, lLim, uLim, nInts=20):
     x-points. n-point Gaussian quadrature should be exact for polynomials of 
     degree n, so use this to check the code!
     """
-    
     #  re-write this code to take an array of values as an input? So you can 
     #  numerically integrate a function for which we don't have an analytical 
     #  expression, or just a set of data points
@@ -50,33 +48,28 @@ def gauss_int(f, lLim, uLim, nInts=20):
     return I;
 
 def line_eq(x):
-    #  Help text
     """
     Returns the equation of a line: y = 3.*x - 2.
     """
     return 3.*x - 2.;
     
 def sin3(x):
-    #  Help text
     '''
     Returns sin(3*x)
     '''
     return np.sin(3*x)
 
 def main():
-    #  Help text
     """
     The body of the program. Calls the function "gauss_int" to numerically 
     integrate a function specified by the writer. Has a boolean switch between 
     code for questions 2. and 3. of the assignment; if qNo == 2, runs code for 
     Q2; if qNo == 3, runs code for Q3.
     """
-    
     #  set question number; must be an integer
     qNo = 3
     
     if qNo == 2:
-        
         #  define integration parameters
         start = 0.	#  lower limit of integral (float)
         stop = np.pi	#  upper limit of integral (float)
@@ -131,6 +124,7 @@ def main():
             print "order of convergence between ", i-1, " and ", i, \
                     "=", order            
         
+        #  Plot abs. error vs nInts
         plt.figure(1)
         plt.plot(np.log10(nInts), np.log10(error))
         plt.xlabel("log(Number of intervals)")
@@ -142,7 +136,7 @@ def main():
         plt.close()
     
     else:
-        raise Exception("Incorrect Question Number! qNo must be 2 or 3")
+        raise Exception("Incorrect Question Number! qNo must be int 2 or 3")
     
     return 0;
 
