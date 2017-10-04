@@ -35,23 +35,31 @@ def gauss_int(f, lLim, uLim, nInts=20):
     #  re-write this code to take an array of values as an input? So you can 
     #  numerically integrate a function for which we don't have an analytical 
     #  expression, or just a set of data points
+
+    #  Testing
+    if not(callable(f)):
+        raise Exception("A callable function must be passed to gauss_int")
+    if nInts <= 0:
+        raise ValueError("Argument nInts to gauss_int should be > 0")
+    if lLim = uLim:
+        raise ValueError("Upper and lower int. limits must be different!")
     
     #  calculate interval length from input values
-    dx = (uLim - lLim)/nInts
+    dx = (uLim - lLim)/int(nInts)
     
     #  initialise integral
     I = 0.
     
     #  sum contributions from each interval
-    for i in xrange(0,nInts):
+    for i in xrange(0,int(nInts)):
         I += f(lLim + (i+0.5)*dx) * dx
     return I;
 
 def line_eq(x):
     """
-    Returns the equation of a line: y = 3.*x - 2.
+    Returns the equation of a line: y = 3*x - 2
     """
-    return 3.*x - 2.;
+    return 3*x - 2;
     
 def sin3(x):
     '''
@@ -136,7 +144,7 @@ def main():
         plt.close()
     
     else:
-        raise Exception("Incorrect Question Number! qNo must be int 2 or 3")
+        raise ValueError("Incorrect Question Number! qNo must be int 2 or 3")
     
     return 0;
 
